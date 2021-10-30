@@ -28,7 +28,6 @@ CREATE TABLE products (
     discontinued BOOLEAN NOT NULL,
     supplier_id INT,
     category_id INT,
-    order_id INT,
     PRIMARY KEY(id)
 );
 
@@ -72,7 +71,6 @@ CREATE TABLE orders (
 CREATE TABLE territories (
     id SERIAL,
     address_line TEXT NOT NULL,
-    employee_id INT,
     PRIMARY KEY(id)
     ---office_id INT---
 );
@@ -82,6 +80,14 @@ CREATE TABLE territories (
 CREATE TABLE orders_products (
     order_id INTEGER NOT NULL,
     product_id INTEGER NOT NULL,
+    quantity INT NOT NULL,
+    discount NUMERIC NOT NULL,
+    PRIMARY KEY(order_id, product_id)
+);
+
+CREATE TABLE employees_territories (
+    employee_id INTEGER NOT NULL,
+    territory_id INTEGER NOT NULL,
     quantity INT NOT NULL,
     discount NUMERIC NOT NULL,
     PRIMARY KEY(order_id, product_id)
@@ -107,8 +113,10 @@ FOREIGN KEY (employee_id)
 REFERENCES employees;
 
 ALTER TABLE territories
-ADD CONSTRAINT fk_territories_employees
+ADD CONSTRAINT fk_employees_territories
 FOREIGN KEY (employee_id) 
 REFERENCES employees;
+
+
 
 -- TODO create more constraints here...
