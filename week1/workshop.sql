@@ -32,7 +32,6 @@ CREATE TABLE products (
     PRIMARY KEY(id)
 );
 
-
 CREATE TABLE categories (
     id SERIAL,
     name TEXT UNIQUE NOT NULL,
@@ -43,6 +42,11 @@ CREATE TABLE categories (
 
 -- TODO create more tables here...
 
+CREATE TABLE supplier (
+    id SERIAL,
+    name TEXT NOT NULL,
+    PRIMARY KEY(id)
+);
 
 ---
 --- Add foreign key constraints
