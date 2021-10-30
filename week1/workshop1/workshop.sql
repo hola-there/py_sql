@@ -60,6 +60,14 @@ CREATE TABLE employees (
     PRIMARY KEY(id)
 );
 
+CREATE TABLE orders (
+    id SERIAL,
+    date DATE,
+    customer_id INT,
+    employee_id INT,
+    PRIMARY KEY(id)
+);
+
 ---
 --- Add foreign key constraints
 ---
@@ -68,5 +76,15 @@ ALTER TABLE products
 ADD CONSTRAINT fk_products_categories 
 FOREIGN KEY (category_id) 
 REFERENCES categories;
+
+ALTER TABLE orders
+ADD CONSTRAINT fk_orders_customers
+FOREIGN KEY (customer_id) 
+REFERENCES customers;
+
+ALTER TABLE orders
+ADD CONSTRAINT fk_orders_employees
+FOREIGN KEY (employee_id) 
+REFERENCES employees;
 
 -- TODO create more constraints here...
