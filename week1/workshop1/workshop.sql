@@ -48,6 +48,12 @@ CREATE TABLE supplier (
     PRIMARY KEY(id)
 );
 
+CREATE TABLE customers (
+    id SERIAL,
+    company_name TEXT,
+    PRIMARY KEY(id)
+);
+
 ---
 --- Add foreign key constraints
 ---
