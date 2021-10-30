@@ -18,3 +18,5 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+week1/Lesson Slides-20211030.zip
+*.pdf
