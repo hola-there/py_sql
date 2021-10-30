@@ -28,6 +28,7 @@ CREATE TABLE products (
     discontinued BOOLEAN NOT NULL,
     supplier_id INT,
     category_id INT,
+    order_id INT,
     PRIMARY KEY(id)
 );
 
@@ -66,6 +67,16 @@ CREATE TABLE orders (
     customer_id INT,
     employee_id INT,
     PRIMARY KEY(id)
+);
+
+--- Many to Many Tables ---
+
+CREATE TABLE orders_products (
+    order_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+    quantity INT NOT NULL,
+    discount NUMERIC,
+    PRIMARY KEY(customer_id, event_id)
 );
 
 ---
