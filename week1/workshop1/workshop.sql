@@ -76,7 +76,7 @@ CREATE TABLE orders_products (
     product_id INTEGER NOT NULL,
     quantity INT NOT NULL,
     discount NUMERIC,
-    PRIMARY KEY(customer_id, event_id)
+    PRIMARY KEY(order_id, product_id)
 );
 
 ---
