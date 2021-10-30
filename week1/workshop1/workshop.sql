@@ -69,6 +69,14 @@ CREATE TABLE orders (
     PRIMARY KEY(id)
 );
 
+CREATE TABLE territories (
+    id SERIAL,
+    address_line TEXT NOT NULL,
+    employee_id INT,
+    PRIMARY KEY(id)
+    ---office_id INT---
+);
+
 --- Many to Many Tables ---
 
 CREATE TABLE orders_products (
@@ -95,6 +103,11 @@ REFERENCES customers;
 
 ALTER TABLE orders
 ADD CONSTRAINT fk_orders_employees
+FOREIGN KEY (employee_id) 
+REFERENCES employees;
+
+ALTER TABLE territories
+ADD CONSTRAINT fk_territories_employees
 FOREIGN KEY (employee_id) 
 REFERENCES employees;
 
